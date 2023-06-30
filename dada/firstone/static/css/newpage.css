@@ -1,0 +1,11 @@
+.menu {
+    background-image: url(OIP.jpg);
+    width: 1900px;
+    float: left;
+    height: 200px;
+    box-sizing: border-box;
+}
+
+ul li a:hover {
+    color: #ff7200;
+}

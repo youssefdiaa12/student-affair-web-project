@@ -1,0 +1,26 @@
+.menu {
+    margin-top: 40px;
+    background-image: url(OIP.jpg);
+    width: 1900px;
+    float: left;
+    height: 200px;
+    box-sizing: border-box;
+}
+
+ul {
+    float: left;
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+ul button {
+    list-style: none;
+    margin-left: 52px;
+    font-size: 17px;
+    text-decoration: none;
+    color: white;
+    font-family: Arial;
+    font-weight: bold;
+    transition: 0.9s ease-in-out;
+}

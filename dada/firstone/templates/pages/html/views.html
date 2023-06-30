@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIEWS PAGE</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/view.css' %}">
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="menu" style="margin-top:-13px;">
+        <h2 style="color: aliceblue; margin: 30px;">VIEW PAGE
+
+        </h2>
+        <ul>
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="search"> SEARCH </a></li>
+
+            <li><a href="edit.html"> EDIT </a></li>
+
+            <li><a href="department.html">DEPARTMENT</a></li>
+            <li><a href="view">VIEW</a></li>
+            <li><a href="courses.html">COURSES</a></li>
+            <li><a href="signup.html ">SIGNUP</a></li>
+            <li><a href="login.html ">LOGIN</a></li>
+        </ul>
+    </div>
+    <h1 style="text-align: center; color:#8d6b0c ;"> student list</h1>
+
+    <section>
+        <!--for demo wrap-->
+        <h1>Fixed Table header</h1>
+        <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                    <tr>
+                        <th>student name</th>
+                        <th>Courses</th>
+                        <th>Gba</th>
+                        <th>Department</th>
+                        <th>ID</th>
+                        <th>LEVEL</th>
+                        <th>EMAIL</th>
+                        <th>PASS</th>
+                        <th>GENDER</th>
+                        <th>ACTIVATION</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tbody>
+                    {%for x in search %}
+                    <tr>
+                        <td>{{x.studentname}}</td>
+                        <td>{{x.course}} </td>
+                        <td>{{x.gpa}}</td>
+                        <td>{{x.department}}</td>
+                        <td>{{x.student_id}}</td>
+                        <td>{{x.level}}</td>
+                        <td>{{x.email}}</td>
+                        <td>{{x.password}}</td>
+                        <td>{{x.gender}}</td>
+                        <td>{{x.activation}}</td>
+                    </tr>
+                    {% endfor %} </tbody>
+            </table>
+        </div>
+    </section>
+
+
+
+
+
+
+
+</body>
+
+</html>

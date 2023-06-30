@@ -1,0 +1,93 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDIT PAGE</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/edit.css' %}">
+    <script>
+        function validateform1() {
+            let id = document.forms["myform"]["id1"].value;
+            let password = document.forms["myform"]["pass"].value;
+            let gpa = document.forms["myform"]["gpa"].value;
+            let num = document.forms["myform"]["no"].value;
+            let gender = document.forms["myform"]["gender"].value;
+            let course = document.forms["myform"]["name1"].value;
+            if (password == null || password == "") {
+                alert("please enter a valid password");
+            } else if (id.length != 8) {
+                alert("your id must be at least 8 characters long.");
+            } else if (gpa <= 0 || gpa > 4) {
+                alert("please enter a correct gpa");
+            } else if (num.length != 1) {
+                alert("please check your level");
+            } else if (gender != "male" || gender != "female" || gender == null) {
+                alert("please check the gender");
+            } else {
+                window.location = "home.html";
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="menu">
+        <h2 style="color: aliceblue; margin: 30px;">EDIT PAGE
+        </h2>
+        <ul>
+            <li><a href="home.html">HOME</a></li>
+            <li>
+                <a href="search"> SEARCH </a></li>
+            <li><a href=" edit.html "> EDIT </a></li>
+
+            <li><a href="department.html ">DEPARTMENT</a></li>
+            <li><a href="view ">VIEW</a></li>
+            <li><a href="courses.html ">COURSES</a></li>
+            <li>
+                <a href="signup.html ">SIGNUP</a>
+                <li><a href="login.html ">LOGIN</a></li>
+            </li>
+        </ul>
+    </div>
+    {% include 'search_venus.html' %}
+    <form name="myform" method="GET" action="{% url 'edit_student' %}" onsubmit="validateform1() ">
+        {% csrf_token %}
+        <div class="form">
+            <h2 style="margin-left: 155px; ">update and delete</h2>
+            <input type="number " name="id1" placeholder="Enter Student ID ">
+            <label for="course name "></label>
+            <input type="text" id=" student ID " name="name1" placeholder="Enter course name " style="margin-left: 25px; margin-top: 20px;">
+            <input type="text" id=" student ID " name="name" placeholder="Enter student name " style="margin-left: 15px; margin-top: 20px;">
+            <input type="text" id=" student ID " name="no" placeholder="Enter student level " style="margin-left: 15px; margin-top: 20px;">
+            <input type="email" id=" student ID " name="mail" placeholder="Enter student mail " style="margin-left: 15px; margin-top: 20px;">
+            <input type="text" id=" student ID " name="pass" placeholder="Enter student password " style="margin-left: 15px; margin-top: 20px;">
+            <input type="text" id=" student ID " name="gender" placeholder="Enter student gender " style="margin-left: 15px; margin-top: 20px;">
+            <input name="gpa" type="text" required placeholder="enter your gpa" style=" margin-left:30px;  margin-top: 20px;">
+            <select name="lol" style="margin-left:70px;margin-top: 20px;" name="sbaey">
+                <option selected="selected">select depart</option>
+                <option value="NONE">NONE</option>
+                <option value="CS">CS</option>
+                <option value="IT">IT</option>
+                <option value="IS">IS</option>
+                <option value="AI">AI</option>
+                <option value="DS">DS</option>
+            </select>
+            <select name="lol1" style="margin-left: 200px;margin-top: 30px;">
+                <option selected="selected">select activation</option>
+            <option>active</option>
+            <option>inactive </option>
+        </select>
+            <button style="margin-top:10px;margin-left:180px" type=" submit " class="btnn " onclick="validateform1() ">save</button>
+        </div>
+    </form>
+
+
+</body>
+
+</html>
+{% endblock content %}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDENT AFFAIRS</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/web.css' %}">
+</head>
+
+<body>
+
+    <div class="menu">
+        <h2 style="color: aliceblue; margin: 30px;">STUDENT AFFAIRS
+        </h2>
+        <ul>
+            <li><a href="web.html">HOME</a></li>
+            <li><a href="#"> SEARCH </a></li>
+            <li><a href="#"> EDIT </a></li>
+
+            <li><a href="#">DEPARTMENT</a></li>
+            <li><a href="#">VIEW</a></li>
+            <li><a href="#">COURSES</a></li>
+        </ul>
+    </div>
+    <h1 style="color: #8d6b0c; margin-left: 15px;"> login first to acess our website</h1>
+    <form name="myform" method="post" onsubmit="validation()">
+        <div class="form">
+            <h2>Login Here</h2>
+            <input type="email" name="email" placeholder="Enter Email Here">
+            <input type="password" name="password" placeholder="Enter Password Here">
+            <button type="button" class="btnn" onclick="validation()">login</button>
+
+            <p class="link">Don't have an account<br>
+                <a href="signup.html">Sign up </a> here</a>
+            </p>
+            <p class="liw">Log in with</p>
+        </div>
+    </form>
+</body>
+
+</html>

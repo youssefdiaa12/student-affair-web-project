@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEPARTMENT PAGE</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/department.css' %}">
+    <script src="{% static 'js/depart.js'%}"></script>
+    <script>
+        function validateform1() {
+            let id = document.forms["myform"]["id"].value;
+            let depart = document.forms["myform"]["depart"].value;
+            if (id.length != 8) {
+                alert("your id must be at least 8 characters long.");
+            }
+            if (depart == "select depart") {
+                alert("please select your department");
+            } else {
+                window.location = "home.html";
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+
+
+    <div class="menu">
+        <h2 style="color: aliceblue; margin: 30px;">DEPARTMENT PAGE
+
+        </h2>
+        <ul>
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="search"> SEARCH </a></li>
+            <li>
+                <a href="edit.html"> EDIT </a></li>
+
+            <li><a href="department.html ">DEPARTMENT</a></li>
+            <li><a href="view ">VIEW</a></li>
+            <li><a href="courses.html ">COURSES</a></li>
+            <li><a href="signup.html ">SIGNUP</a></li>
+            <li><a href="login.html ">LOGIN</a></li>
+        </ul>
+    </div>
+    <form name="myform" method="GET" action="{% url 'depart_student' %}" onsubmit="validateform1() ">
+        {% csrf_token %}
+        <div class="form ">
+            <h2 style="margin-left: 155px; ">department info</h2>
+            <input type="number" name="id" placeholder="Enter your id ">
+            <select name="depart" style="padding: 5px; margin: 5px; margin-left:150px;">
+                <option>select depart</option>
+                <option value="CS">CS</option>
+                <option value="IT">IT</option>
+                <option value="IS">IS</option>
+                <option value="AI">AI</option>
+                <option value="DS">DS</option>
+              </select>
+
+            <button class="btnn " type="submit" style="margin-left: 140px; " onclick="validateform1() ">register</button>
+        </div>
+    </form>
+
+</body>
+
+</html>

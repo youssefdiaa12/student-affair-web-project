@@ -1,0 +1,63 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN PAGE</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/department.css' %}">
+    <script>
+        function validateform1() {
+            let id = document.forms["myform"]["id"].value;
+            let password = document.forms["myform"]["id1"].value;
+            if (password == null || password == "") {
+                alert("please enter a valid password");
+            } else if (id.length != 8) {
+                alert("your id must be at least 8 characters long.");
+            } else {
+                window.location = "home.html";
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+
+
+    <div class="menu">
+        <h2 style="color: aliceblue; margin: 30px;">LOGIN PAGE
+
+        </h2>
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#"> SEARCH </a></li>
+            <li>
+                <a href="#"> EDIT </a></li>
+
+            <li><a href="# ">DEPARTMENT</a></li>
+            <li><a href="#">VIEW</a></li>
+            <li><a href="#">COURSES</a></li>
+            <li><a href="signup.html">SIGNUP</a></li>
+            <li><a href="login.html ">LOGIN</a></li>
+        </ul>
+    </div>
+    {% include 'search_venus.html' %}
+    <form name="myform" method="GET" action="{% url 'login_student' %}" onsubmit="validateform1()">
+        {% csrf_token %}
+        <div class="form ">
+            <h2 style="margin-left: 155px; ">LOGIN PAGE</h2>
+            <input type="number " name="id" placeholder="Enter your id ">
+            <input type="text" name="id1" style="margin-left:30px;" placeholder="Enter your password ">
+            <button class="btnn " type="submit" style="margin-left: 140px; " onclick="validateform1() ">LOGIN</button>
+        </div>
+    </form>
+
+</body>
+
+</html>
+{% endblock content %}
